@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="colorPrimary">#00796B</color> <!-- Ana renk -->
+    <color name="colorPrimaryDark">#004D40</color> <!-- Koyu ana renk -->
+    <color name="colorAccent">#FFC107</color> <!-- Vurgu rengi -->
+    <color name="white">#FFFFFF</color> <!-- Beyaz renk -->
+    <color name="grayBackground">#F5F5F5</color> <!-- Arka plan gri rengi -->
 </resources>

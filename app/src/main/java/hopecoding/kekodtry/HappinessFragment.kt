@@ -28,7 +28,7 @@ class HappinessFragment : Fragment() {
 
         // Use the binding to access the ImageView
 
-        binding.imageView.load(R.drawable.gojo) {
+        binding.imageView.load(R.drawable.gojo_happiness) {
             decoderFactory { result, options, _ -> GifDecoder(result.source, options) }
 
         }

@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import coil.decode.GifDecoder
+import coil.load
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import hopecoding.kekodtry.databinding.FragmentEgoBinding
 
@@ -26,6 +28,11 @@ class EgoFragment : Fragment() {
 
         val activityBinding = (activity as MainActivity).binding
         val bottomNavigationBar = activityBinding.bottomNavigation
+
+        binding.optionView.load(R.drawable.eren) {
+            decoderFactory { result, options, _ -> GifDecoder(result.source, options) }
+
+        }
 
         // Başlangıçta Ego switch açık
         binding.switchEgo.isChecked = true
