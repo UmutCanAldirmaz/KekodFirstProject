@@ -1,52 +1,80 @@
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
-    <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/switchEgo"
+    <!-- Switches Bölümü -->
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ego"
-        app:useMaterialThemeColors="true" />
+        android:layout_marginTop="160dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/switch1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Switch 1"
-        app:useMaterialThemeColors="true" />
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switchEgo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ego"
+            app:useMaterialThemeColors="true" />
 
-    <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/switch2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Switch 2"
-        app:useMaterialThemeColors="true" />
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switch1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Switch 1"
+            app:useMaterialThemeColors="true" />
 
-    <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/switch3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Switch 3"
-        app:useMaterialThemeColors="true" />
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switch2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Switch 2"
+            app:useMaterialThemeColors="true" />
 
-    <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/switch4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Switch 4"
-        app:useMaterialThemeColors="true" />
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switch3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Switch 3"
+            app:useMaterialThemeColors="true" />
 
-    <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/switch5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Switch 5"
-        app:useMaterialThemeColors="true" />
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switch4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Switch 4"
+            app:useMaterialThemeColors="true" />
 
-</LinearLayout>
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switch5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Switch 5"
+            app:useMaterialThemeColors="true" />
+    </LinearLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation_bar"
+        android:layout_width="414dp"
+        android:layout_height="93dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="2dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.993" />
+
+    <!-- Bottom Navigation Bar -->
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
