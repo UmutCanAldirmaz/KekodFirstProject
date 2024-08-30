@@ -1,6 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/egoFragment">
 
+    <fragment
+        android:id="@+id/egoFragment"
+        android:name="hopecoding.kekodtry.EgoFragment"
+        android:label="fragment_ego"
+        tools:layout="@layout/fragment_ego" >
+        <action
+            android:id="@+id/action_egoFragment_to_happinessFragment"
+            app:destination="@id/happinessFragment" />
+        <action
+            android:id="@+id/action_egoFragment_to_kindnessFragment"
+            app:destination="@id/kindnessFragment" />
+        <action
+            android:id="@+id/action_egoFragment_to_loveFragment"
+            app:destination="@id/loveFragment" />
+        <action
+            android:id="@+id/action_egoFragment_to_lonelyFragment"
+            app:destination="@id/lonelyFragment" />
+        <action
+            android:id="@+id/action_egoFragment_to_respectFragment"
+            app:destination="@id/respectFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/happinessFragment"
+        android:name="hopecoding.kekodtry.HappinessFragment"
+        android:label="fragment_happiness"
+        tools:layout="@layout/fragment_happiness" />
+    <fragment
+        android:id="@+id/kindnessFragment"
+        android:name="hopecoding.kekodtry.KindnessFragment"
+        android:label="fragment_kindness"
+        tools:layout="@layout/fragment_kindness" />
+    <fragment
+        android:id="@+id/lonelyFragment"
+        android:name="hopecoding.kekodtry.LonelyFragment"
+        android:label="fragment_lonely"
+        tools:layout="@layout/fragment_lonely" />
+    <fragment
+        android:id="@+id/loveFragment"
+        android:name="hopecoding.kekodtry.LoveFragment"
+        android:label="fragment_love"
+        tools:layout="@layout/fragment_love" />
+    <fragment
+        android:id="@+id/respectFragment"
+        android:name="hopecoding.kekodtry.RespectFragment"
+        android:label="fragment_respect"
+        tools:layout="@layout/fragment_respect" />
 </navigation>
