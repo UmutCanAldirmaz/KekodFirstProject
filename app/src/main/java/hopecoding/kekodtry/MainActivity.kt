@@ -21,13 +21,22 @@ class MainActivity : AppCompatActivity() {
 
         // Ego switch değişikliklerini dinleme
         binding.switchEgo.setOnCheckedChangeListener { _, isChecked ->
+            // Diğer switch'lerin durumunu güncelle
             updateSwitchesState(isChecked)
-            if (!isChecked) {
-                // Ego switch kapalıysa BottomNavigationView'ı göster
-                binding.bottomNavigationBar.visibility = View.VISIBLE
-            } else {
-                // Ego switch açıkken BottomNavigationView'ı gizle
+
+            if (isChecked) {
+                // Ego switch açıkken BottomNavigationView'ı gizle ve item'i kaldır
                 binding.bottomNavigationBar.visibility = View.GONE
+                binding.bottomNavigationBar.menu.removeItem(R.id.switchEgo)
+            } else {
+                // Ego switch kapalıyken BottomNavigationView'ı göster ve item ekle
+                binding.bottomNavigationBar.visibility = View.VISIBLE
+
+                // Eğer item zaten mevcut değilse ekle
+                if (binding.bottomNavigationBar.menu.findItem(R.id.switchEgo) == null) {
+                    binding.bottomNavigationBar.menu.add(0, R.id.switchEgo, 0, "Ego Switch")
+                        .setIcon(R.drawable.android_black)
+                }
             }
         }
 
@@ -45,7 +54,14 @@ class MainActivity : AppCompatActivity() {
         )
 
         switches.forEach { switch ->
-            switch.isEnabled = !isEgoSwitchOn
+            if (isEgoSwitchOn) {
+                // Ego switch açıkken diğer switch'ler kapalı ve tıklanamaz
+                switch.isEnabled = false
+                switch.isChecked = false
+            } else {
+                // Ego switch kapalıyken diğer switch'leri etkinleştir
+                switch.isEnabled = true
+            }
         }
 
         // Ego switch'inin kendisini her durumda etkin tut
@@ -62,7 +78,13 @@ class MainActivity : AppCompatActivity() {
 
         switches.forEach { (switch, id) ->
             switch.setOnCheckedChangeListener { _, isChecked ->
-                handleSwitchChange(id, isChecked, binding.bottomNavigationBar, R.drawable.android_black, "${switch.text}")
+                handleSwitchChange(
+                    id,
+                    isChecked,
+                    binding.bottomNavigationBar,
+                    R.drawable.android_black,
+                    "${switch.text}"
+                )
             }
         }
     }
@@ -74,12 +96,33 @@ class MainActivity : AppCompatActivity() {
         iconResId: Int,
         title: String
     ) {
-        if (isChecked) {
+        val switches = listOf(
+            binding.switch1,
+            binding.switch2,
+            binding.switch3,
+            binding.switch4,
+            binding.switch5
+        )
+
+        if (isChecked && bottomNavigationView.menu.size() < 5) {
             // Switch açıldığında ilgili icon ve text ekleniyor
+            // Eğer menüde hiç item yoksa, ekle
             bottomNavigationView.menu.add(0, id, 0, title).setIcon(iconResId)
         } else {
             // Switch kapandığında ilgili item kaldırılıyor
+
             bottomNavigationView.menu.removeItem(id)
         }
+        when (bottomNavigationView.menu.size()) {
+            5 -> switches.forEach { switch ->
+                if (!switch.isChecked) {
+                    switch.isEnabled = false
+                }
+            }
+            else -> switches.forEach { switch ->
+                switch.isEnabled = true
+            }
+        }
     }
+
 }
