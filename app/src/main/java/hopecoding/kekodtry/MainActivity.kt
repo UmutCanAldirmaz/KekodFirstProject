@@ -24,41 +24,36 @@ class MainActivity : AppCompatActivity() {
         val bottomNavigationView = binding.bottomNavigation
         NavigationUI.setupWithNavController(bottomNavigationView, navController)
 
-        binding.bottomNavigation.setOnNavigationItemSelectedListener { item ->
+
+        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.switch1 -> {
                     navController.navigate(R.id.happinessFragment)
                     true
                 }
-
                 R.id.switch2 -> {
                     navController.navigate(R.id.respectFragment)
                     true
                 }
-
                 R.id.switch3 -> {
                     navController.navigate(R.id.kindnessFragment)
                     true
                 }
-
                 R.id.switch4 -> {
                     navController.navigate(R.id.loveFragment)
                     true
                 }
-
                 R.id.switch5 -> {
                     navController.navigate(R.id.lonelyFragment)
                     true
                 }
-
                 R.id.switchEgo -> {
                     navController.navigate(R.id.egoFragment)
                     true
                 }
-
                 else -> false
             }
-
         }
+        
     }
 }

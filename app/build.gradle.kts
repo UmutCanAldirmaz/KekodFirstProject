@@ -42,6 +42,7 @@ android {
 dependencies {
 
     val nav_version = "2.7.7"
+    val fragment_version = "1.8.2"
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -49,8 +50,10 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation("io.coil-kt:coil:2.4.0")
     implementation("io.coil-kt:coil-gif:2.4.0")
+    implementation("androidx.fragment:fragment-ktx:$fragment_version")
     implementation("androidx.navigation:navigation-fragment:$nav_version")
     implementation("androidx.navigation:navigation-ui:$nav_version")
+
     implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
